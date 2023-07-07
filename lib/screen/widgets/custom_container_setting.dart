@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do/style/colors.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../provider/my_provider.dart';
 
 class CustomThemeContainer extends StatelessWidget {
@@ -20,7 +20,7 @@ class CustomThemeContainer extends StatelessWidget {
             color: AppColors.primaryColor,
           )),
       child: Text(
-        pro.themeMode==ThemeMode.light?"Light":"Dark",
+        pro.themeMode==ThemeMode.light?AppLocalizations.of(context)!.light:AppLocalizations.of(context)!.dark,
         style: Theme.of(context)
             .textTheme
             .bodyLarge

@@ -6,6 +6,7 @@ import 'package:to_do/screen/widgets/custom_language_contanier.dart';
 import 'package:to_do/screen/widgets/show_language_app.dart';
 import 'package:to_do/screen/widgets/show_theme_app.dart';
 import '../provider/my_provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingScreen extends StatelessWidget {
   @override
@@ -18,7 +19,7 @@ class SettingScreen extends StatelessWidget {
         children: [
           Center(
               child: Text(
-            "Settings",
+                AppLocalizations.of(context)!.settings,
             style:
                 Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 30,color:pro.themeMode==ThemeMode.light?Colors.black:Colors.white ),
           )),
@@ -26,7 +27,7 @@ class SettingScreen extends StatelessWidget {
             height: 50,
           ),
           Text(
-            "Language",
+            AppLocalizations.of(context)!.language,
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(color:pro.themeMode==ThemeMode.light?Colors.black:Colors.white ),
           ),
           const SizedBox(
@@ -41,7 +42,7 @@ class SettingScreen extends StatelessWidget {
             height: 30,
           ),
           Text(
-            "Mode",
+            AppLocalizations.of(context)!.mode,
             style: Theme.of(context).textTheme.bodyLarge?.copyWith(color:pro.themeMode==ThemeMode.light?Colors.black:Colors.white ),
           ),
           const SizedBox(

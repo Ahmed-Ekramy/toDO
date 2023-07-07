@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../provider/my_provider.dart';
 
 class ShowThemeApp extends StatelessWidget {
@@ -19,7 +19,7 @@ class ShowThemeApp extends StatelessWidget {
                   onTap: () {
                     prov.changeTheme(ThemeMode.light);
                   },
-                  child: Text("Light",
+                  child: Text(    AppLocalizations.of(context)!.light,
                       style: Theme
                           .of(context)
                           .textTheme
@@ -41,7 +41,7 @@ class ShowThemeApp extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    "Dark",
+                    AppLocalizations.of(context)!.dark,
                     style: Theme
                         .of(context)
                         .textTheme

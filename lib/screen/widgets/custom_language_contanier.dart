@@ -2,10 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do/style/colors.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../provider/my_provider.dart';
 
 class CustomLanguageContainer extends StatelessWidget {
+  const CustomLanguageContainer({super.key});
+
   @override
   Widget build(BuildContext context) {
     var pro = Provider.of<MyProvider>(context);
@@ -20,7 +22,7 @@ class CustomLanguageContainer extends StatelessWidget {
             color: AppColors.primaryColor,
           )),
       child: Text(
-       "ENGLISH",
+      pro.langcode=="en"?AppLocalizations.of(context)!.english:AppLocalizations.of(context)!.arabic,
         style: Theme.of(context)
             .textTheme
             .bodyLarge
