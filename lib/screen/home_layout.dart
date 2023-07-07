@@ -1,7 +1,10 @@
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:to_do/provider/my_provider.dart';
 import 'package:to_do/screen/setting.dart';
 import 'package:to_do/screen/widgets/show_add_bottom_sheet.dart';
+import 'package:to_do/style/colors.dart';
 
 import 'task_screen.dart';
 
@@ -19,6 +22,7 @@ int Index =0;
 List<Widget>tabs=[const TaskScreen(),SettingScreen()];
   @override
   Widget build(BuildContext context) {
+    var prov=Provider.of<MyProvider>(context);
     return Scaffold(
       extendBody: true,
       appBar: AppBar(
@@ -39,6 +43,7 @@ List<Widget>tabs=[const TaskScreen(),SettingScreen()];
       ),
       ),
       bottomNavigationBar: BottomAppBar(
+        color:prov.themeMode==ThemeMode.light?Colors.white:AppColors.DarkColor ,
         notchMargin: 8,
         shape: CircularNotchedRectangle(),
         child: BottomNavigationBar(

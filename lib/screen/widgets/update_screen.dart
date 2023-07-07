@@ -6,9 +6,6 @@ import 'custom_text_form_field.dart';
 
 class UpdateScreen extends StatefulWidget {
 static const String routeName="UpdateScreen";
-TaskModel taskModel;
-
-UpdateScreen(this.taskModel);
 
   @override
   State<UpdateScreen> createState() => _UpdateScreenState();
