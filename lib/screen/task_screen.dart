@@ -7,7 +7,7 @@ import 'package:to_do/model/task_model.dart';
 import 'package:to_do/provider/my_provider.dart';
 import 'package:to_do/screen/widgets/task_item.dart';
 import 'package:to_do/style/colors.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class TaskScreen extends StatefulWidget {
   const TaskScreen({super.key});
 
@@ -48,7 +48,7 @@ class _TaskScreenState extends State<TaskScreen> {
                 return const Center(child: CircularProgressIndicator());
               }
               if (snapshot.hasError) {
-                return Text("Somting went wrong", style: Theme
+                return Text(AppLocalizations.of(context)!.noTask, style: Theme
                     .of(context)
                     .textTheme
                     .bodyLarge
@@ -59,7 +59,7 @@ class _TaskScreenState extends State<TaskScreen> {
                 return e.data();
               }).toList() ?? [];
               if (tasks.isEmpty) {
-                return Text('NO TASK', style: Theme
+                return Text(  AppLocalizations.of(context)!.noTask, style: Theme
                     .of(context)
                     .textTheme
                     .bodyLarge

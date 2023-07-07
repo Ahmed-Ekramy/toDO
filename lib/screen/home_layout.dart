@@ -5,6 +5,7 @@ import 'package:to_do/provider/my_provider.dart';
 import 'package:to_do/screen/setting.dart';
 import 'package:to_do/screen/widgets/show_add_bottom_sheet.dart';
 import 'package:to_do/style/colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'task_screen.dart';
 
@@ -27,7 +28,7 @@ List<Widget>tabs=[const TaskScreen(),SettingScreen()];
       extendBody: true,
       appBar: AppBar(
           title: Text(
-        "To Do List",
+            AppLocalizations.of(context)!.appTitle,
         style: Theme.of(context)
             .textTheme
             .bodyLarge!

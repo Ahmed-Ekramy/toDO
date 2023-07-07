@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../provider/my_provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class ShowLanguageApp extends StatelessWidget {
   const ShowLanguageApp({super.key});
 
@@ -19,18 +19,18 @@ class ShowLanguageApp extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {
-                    prov.changeTheme(ThemeMode.light);
+                    prov.changeLang("en");
                   },
-                  child: Text("Light",
+                  child: Text(AppLocalizations.of(context)!.english,
                       style: Theme
                           .of(context)
                           .textTheme
                           .bodyLarge
                           ?.copyWith(
-                          color: prov.themeMode == ThemeMode.light ?Colors.orange:Colors.white)),
+                          color:prov.langcode=="en" ?Colors.orange:Colors.white)),
                 ),
                 Spacer(),
-                Icon(Icons.done,color: prov.themeMode == ThemeMode.light ?Colors.orange:Colors.white),
+                Icon(Icons.done, color:prov.langcode=="en" ?Colors.orange:Colors.white),
               ],
             ),
             const SizedBox(
@@ -38,19 +38,19 @@ class ShowLanguageApp extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
-                prov.changeTheme(ThemeMode.dark);
+                prov.changeLang("ar");
               },
               child: Row(
                 children: [
                   Text(
-                    "Dark",
+                    AppLocalizations.of(context)!.arabic,
                     style: Theme
                         .of(context)
                         .textTheme
-                        .bodyLarge?.copyWith(color: prov.themeMode == ThemeMode.light ?Colors.black:Colors.orange),
+                        .bodyLarge?.copyWith(color:prov.langcode=="ar" ?Colors.orange:Colors.white),
                   ),
                   const Spacer(),
-                  Icon(Icons.done,color: prov.themeMode == ThemeMode.light ?Colors.black:Colors.orange),
+                  Icon(Icons.done,color:prov.langcode=="ar" ?Colors.orange:Colors.white),
                 ],
               ),
             ),

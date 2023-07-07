@@ -1,12 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:to_do/provider/my_provider.dart';
 import 'package:to_do/screen/home_layout.dart';
 import 'package:to_do/screen/widgets/update_screen.dart';
 import 'package:to_do/style/theme.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,6 +30,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     var prov=Provider.of<MyProvider>(context);
     return MaterialApp(
+      localizationsDelegates: const [
+        AppLocalizations.delegate, // A
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('en'), // English
+        Locale('ar'), // Spanish
+      ],
+      locale: Locale(prov.langcode),
       debugShowCheckedModeBanner: false,
       initialRoute:HomeLayout.routeName ,
       routes: {
