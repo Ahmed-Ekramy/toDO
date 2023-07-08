@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:to_do/firebase/firebase_fuction.dart';
 import 'package:to_do/model/task_model.dart';
-import 'package:to_do/screen/widgets/update_screen.dart';
+import 'package:to_do/screen/update_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class TaskItem extends StatelessWidget {
   TaskModel taskModel;
@@ -36,7 +36,7 @@ class TaskItem extends StatelessWidget {
                 ),
                 SlidableAction(
                   onPressed: (context) {
-                    Navigator.pushNamed(context, UpdateScreen.routeName);
+                    Navigator.pushNamed(context, UpdateScreen.routeName, arguments: taskModel);
 
                   },
                   backgroundColor: Color(0xFF21B7CA),

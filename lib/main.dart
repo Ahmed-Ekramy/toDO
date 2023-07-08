@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:to_do/provider/my_provider.dart';
 import 'package:to_do/screen/home_layout.dart';
-import 'package:to_do/screen/widgets/update_screen.dart';
+import 'package:to_do/screen/update_screen.dart';
 import 'package:to_do/style/theme.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
