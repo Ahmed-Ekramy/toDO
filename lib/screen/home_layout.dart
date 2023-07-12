@@ -1,7 +1,9 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do/provider/my_provider.dart';
+import 'package:to_do/screen/login_screen.dart';
 import 'package:to_do/screen/setting.dart';
 import 'package:to_do/screen/widgets/show_add_bottom_sheet.dart';
 import 'package:to_do/style/colors.dart';
@@ -28,12 +30,20 @@ List<Widget>tabs=[const TaskScreen(),SettingScreen()];
       extendBody: true,
       appBar: AppBar(
           title: Text(
-            AppLocalizations.of(context)!.appTitle,
+      "      ${AppLocalizations.of(context)!.appTitle}        ${prov.userModel?.name}",
         style: Theme.of(context)
             .textTheme
             .bodyLarge!
             .copyWith(color: Colors.white),
-      )),
+      ),
+        actions: [
+          IconButton(onPressed: (){
+            FirebaseAuth.instance.signOut();
+            Navigator.pushReplacementNamed(context, LoginScreen.routeName);
+          }, icon: Icon(Icons.login_outlined))
+        ],
+      
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(onPressed: () {
      ShowAddBootomSheet(context);
