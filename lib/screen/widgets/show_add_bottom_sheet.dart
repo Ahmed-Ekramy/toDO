@@ -1,4 +1,5 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:to_do/model/task_model.dart';
@@ -76,10 +77,13 @@ class _showAddBootomSheetState extends State<showAddBootomSheet> {
                       onPressed: () {
                         if (formkey.currentState!.validate()) {
                           TaskModel task = TaskModel(
+
                               description: descriptioncontroller.text,
                               title: titlecontroller.text,
                               status: false,
-                              date: pro.selectedDate.millisecondsSinceEpoch);
+                              date: pro.selectedDate.millisecondsSinceEpoch,
+                              userId: FirebaseAuth.instance.currentUser!.uid,
+                              time: DateTime.now().millisecondsSinceEpoch);
                           FireBaseFunction.addTaskeToFireStore(task);
                           Navigator.pop(context);
                         }
