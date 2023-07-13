@@ -15,6 +15,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  bool isObscure = false;
   var formkey = GlobalKey<FormState>();
 
   var emailController = TextEditingController();
@@ -68,6 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 10,
               ),
               TextFormField(
+                obscureText: isObscure,
                 validator: (value) {
                   if (value!.isEmpty) {
                     return 'Please enter password';
@@ -81,6 +83,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   errorStyle: const TextStyle(color: Colors.red, fontSize: 15),
                   hintText: 'password',
                   labelText: 'password',
+                    suffixIcon: IconButton(
+                        icon: Icon(
+                            isObscure ?  Icons.visibility_off:Icons.visibility ),
+                        onPressed: () {
+                          setState(() {
+                            isObscure = !isObscure;
+                          });
+                        }),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20)),
                   focusedBorder: OutlineInputBorder(

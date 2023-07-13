@@ -17,7 +17,7 @@ class RegisterScreen extends  StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   var formkey = GlobalKey<FormState>();
-
+  bool isObscure = true;
   var emailController = TextEditingController();
 
   var nameController = TextEditingController();
@@ -105,6 +105,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     errorStyle: const TextStyle(color: Colors.red, fontSize: 15),
                     hintText: 'password',
                     labelText: 'password',
+                    suffixIcon: IconButton(
+                        icon: Icon(
+                            isObscure ?  Icons.visibility_off:Icons.visibility),
+                        onPressed: () {
+                          setState(() {
+                            isObscure = !isObscure;
+                          });
+                        }),
                     enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20)),
                     focusedBorder: OutlineInputBorder(
